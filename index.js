@@ -8,7 +8,8 @@ app.use(express.static('./public'));
 
 //Rotas para os pedidos
 app.use('/',require('./routes/mainRoute'))
-
+app.use('/navbar',require('./routes/navbarRoute'))
+app.use('/tipos',require('./routes/tipoRoute'))
 
 
 const port = 3006;

@@ -6,5 +6,5 @@ const mainRoute = express.Router()
     response.sendFile(path.join(__dirname, '../public/index.html'))
   }) 
 
-exports.module = mainRoute
+module.exports = mainRoute
 

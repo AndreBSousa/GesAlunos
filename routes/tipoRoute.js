@@ -1,6 +1,7 @@
+const express = require('express');
+const mainRoute = express.Router()
 
-
-app.get('/tipos', function (req, res) {
+mainRoute.get('/tipos', function (req, res) {
     connection.query('SELECT * FROM tipos',(err,result) => {
         if(err)
             res.json('Ocorreu um problema na base de dados...')
@@ -9,4 +10,6 @@ app.get('/tipos', function (req, res) {
         }
       })
   })
+
+  module.exports = tipoRoute
   
