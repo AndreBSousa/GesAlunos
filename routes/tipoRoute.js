@@ -1,7 +1,9 @@
 const express = require('express');
-const mainRoute = express.Router()
+const tipoRoute = express.Router()
+const connection = require('../public/dbcon');
 
-mainRoute.get('/tipos', function (req, res) {
+
+tipoRoute.get('/', function (req, res) {
     connection.query('SELECT * FROM tipos',(err,result) => {
         if(err)
             res.json('Ocorreu um problema na base de dados...')
