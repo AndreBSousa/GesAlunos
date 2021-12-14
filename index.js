@@ -1,20 +1,25 @@
-const { constants } = require('buffer')
-const express = require('express')
-const path = require('path')
-const app = express()
- 
-app.use(express.static('./public'))
+const { clear } = require('console');
+const express = require('express');
+const path = require('path');
+const app = express();
+const connection = require('./public/dbcon.js');
+app.use(express.static('./public'));
 
- app.get('/', function (req, response) {
-  response.sendFile(path.join(__dirname, './public/index.html'))
-}) 
 
-app.get('/navbar', function (req, response) {
-  response.sendFile(path.join(__dirname, './public/navbar.html'))
-}) 
- 
+//Rotas para os pedidos
+app.use('/',require('./routes/mainRoute'))
+
+
+
 const port = 3006;
 
 app.listen(port, function (){
-console.log("Lisenning on port: " + port)
+  console.log("Listenning on port: " + port)
+})
+
+
+
+app.post('/inseriralunos', (req,res)=>{
+  console.log(req.body)
+  res.send('Cheguei bem e de saude!')
 })
